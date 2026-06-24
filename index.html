@@ -3,119 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Professional CV</title>
+    <title>Minseo - Minimalist Portfolio</title>
     <style>
+        /* Modern Minimalist "Cactus" Theme Color Palette */
         :root {
-            --primary: #2563eb;
-            --text: #1f2937;
-            --bg: #f3f4f6;
+            --bg: #1a1a1a;        /* Sleek Charcoal Dark Background */
+            --text-main: #e0e0e0; /* Off-White Soft Text */
+            --text-muted: #8c8c8c;/* Muted Grey for subtext */
+            --accent: #5ca380;    /* Muted Sage Cactus Green */
+            --border: #2d2d2d;    /* Subtle separation lines */
+            --font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg);
+
+        /* Smoothly adapt if the user prefers Light Mode */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #fbfbfb;
+                --text-main: #222222;
+                --text-muted: #666666;
+                --accent: #2e6f40;
+                --border: #e5e5e5;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
         }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font);
+            line-height: 1.6;
+            padding: 60px 20px;
+        }
+
         .container {
-            max-width: 800px;
+            max-width: 680px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
+
+        /* Profile Header */
         header {
-            border-bottom: 2px solid var(--bg);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
-        h1 { margin: 0; color: var(--primary); font-size: 2.5rem; }
-        .subtitle { font-size: 1.2rem; color: #4b5563; margin: 5px 0 15px 0; }
-        .contact-info { display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.9rem; color: #6b7280; }
-        .contact-info a { color: var(--primary); text-decoration: none; }
-        section { margin-bottom: 30px; }
-        h2 { color: var(--primary); border-bottom: 1px solid var(--bg); padding-bottom: 5px; }
-        .job, .education { margin-bottom: 20px; }
-        .job-title, .edu-title { font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between; }
-        .company, .school { color: #4b5563; font-style: italic; }
-        .date { color: #6b7280; font-weight: normal; font-size: 0.9rem; }
-        ul { padding-left: 20px; margin-top: 5px; }
-        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
-        .skills-list li { background: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .title-title {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        p.bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 600px;
+        }
+
+        /* Social Links Grid / Row */
+        .socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Interactive Cactus-style links */
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent);
+            border-bottom-style: solid;
+        }
+
+        /* Section Styling */
+        section {
+            margin-top: 45px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Clean List Layout (Similar to Lazar's & Cactus theme) */
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        /* Left side content */
+        .item-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* Right side date/meta tags */
+        .item-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        /* Simple Skills Tags */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            font-size: 0.85rem;
+            background: var(--border);
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: var(--text-main);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    
+    <!-- Profile Info -->
     <header>
-        <h1>Your Name</h1>
-        <div class="subtitle">Your Desired Profession / Job Title</div>
-        <div class="contact-info">
-            <span>📧 email@example.com</span>
-            <span>📱 (123) 456-7890</span>
-            <span>📍 City, Country</span>
-            <span>🔗 <a href="#">LinkedIn Profile</a></span>
+        <h1>Hello, I'm Minseo.</h1>
+        <div class="title-title">Developer & Creative</div>
+        <p class="bio">
+            Passionate about building minimalist, fast, and accessible web experiences. I love taking complex code concepts and refining them down to their absolute core.
+        </p>
+        <div class="socials">
+            <a href="https://github.com/minseo-1129" target="_blank">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="mailto:your@email.com">Email</a>
         </div>
     </header>
 
+    <!-- Experience / Projects Section -->
     <section>
-        <h2>Summary</h2>
-        <p>A brief 2-3 sentence summary about who you are, what you excel at, and what kind of roles you are looking for. Keep it punchy and professional!</p>
-    </section>
-
-    <section>
-        <h2>Work Experience</h2>
-        
-        <div class="job">
-            <div class="job-title">
-                <span>Job Title / Role</span>
-                <span class="date">Jan 2024 -- Present</span>
+        <h2>Selected Projects</h2>
+        <div class="list-container">
+            
+            <div class="list-item">
+                <div class="item-content">
+                    <span class="item-title"><a href="#">minseo-1129.github.io</a></span>
+                    <span class="item-desc">My personal digital resume built with clean, accessible semantic markup and zero framework bloat.</span>
+                </div>
+                <div class="item-meta">2026</div>
             </div>
-            <div class="company">Company Name</div>
-            <ul>
-                <li>Accomplished [X] as measured by [Y], by doing [Z].</li>
-                <li>Led a team of core contributors to build out an amazing project feature.</li>
-                <li>Optimized workflows resulting in a 20% increase in efficiency.</li>
-            </ul>
-        </div>
 
-        <div class="job">
-            <div class="job-title">
-                <span>Junior Role</span>
-                <span class="date">Jun 2022 -- Dec 2023</span>
+            <div class="list-item">
+                <div class="item-content">
+                    <span class="item-title"><a href="#">Project Alpha</a></span>
+                    <span class="item-desc">An interactive tracker optimized for developer workflows. Reduced build dependencies by 40%.</span>
+                </div>
+                <div class="item-meta">2025</div>
             </div>
-            <div class="company">Previous Company Name</div>
-            <ul>
-                <li>Assisted in daily operations and contributed heavily to codebases/projects.</li>
-                <li>Collaborated across teams to fix high-priority bugs and errors.</li>
-            </ul>
+
         </div>
     </section>
 
+    <!-- Work Experience Section -->
+    <section>
+        <h2>Experience</h2>
+        <div class="list-container">
+            
+            <div class="list-item">
+                <div class="item-content">
+                    <span class="item-title">Frontend Engineer</span>
+                    <span class="item-desc">Tech Company Inc. — Building responsive dashboards and implementing UI component libraries.</span>
+                </div>
+                <div class="item-meta">2024 -- Present</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
     <section>
         <h2>Skills</h2>
-        <ul class="skills-list">
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Git & GitHub</li>
-            <li>Project Management</li>
-            <li>Data Analysis</li>
-            <li>Communication</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Education</h2>
-        <div class="education">
-            <div class="edu-title">
-                <span>Degree Name / Certification</span>
-                <span class="date">Graduated 2022</span>
-            </div>
-            <div class="school">University or Institution Name</div>
+        <div class="skills-grid">
+            <span class="skill-tag">HTML & CSS</span>
+            <span class="skill-tag">JavaScript (ES6)</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">Technical Writing</span>
         </div>
     </section>
+
+    <!-- Minimalist Footer -->
+    <footer>
+        <span>© 2026 Minseo</span>
+        <span>Built with pure HTML/CSS</span>
+    </footer>
+
 </div>
 
 </body>
